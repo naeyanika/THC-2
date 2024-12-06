@@ -86,10 +86,8 @@ if uploaded_files:
     for file in uploaded_files:
         df = pd.read_csv(file, delimiter=';', low_memory=False)
         dfs[file.name] = df
-
-    if st.button("Bersihkan Cache"):
-        st.cache_resource.clear()
-        st.success("Cache berhasil dibersihkan setelah memproses file!")
+        
+    st.cache_resource.clear()
 
     # Process DbSimpanan
     if 'DbSimpanan.csv' in dfs:
